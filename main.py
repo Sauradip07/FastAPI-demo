@@ -19,11 +19,12 @@ Original file is located at
 # !ngrok authtoken 2gEcFK2gvmDh3oBduEWkAHH9kiF_88hGeZiVcJiURLoenTSoD
 
 # from colabcode import ColabCode
+from colabcode import ColabCode
 from fastapi import FastAPI
 import random
 import uvicorn
 import nest_asyncio
-# from pyngrok import ngrok
+from pyngrok import ngrok
 import uvicorn
 # fixing unicode error in google colab
 import locale
@@ -37,8 +38,8 @@ import torch
 from transformers import AutoModelForCausalLM, AutoTokenizer, BitsAndBytesConfig, pipeline
 
 import os
-# import gradio as gr
-# from google.colab import drive
+import gradio as gr
+from google.colab import drive
 
 import chromadb
 from langchain.llms import HuggingFacePipeline
@@ -53,7 +54,6 @@ from langchain_community.document_loaders.merge import MergedDataLoader ###
 from langchain_community.vectorstores.utils import filter_complex_metadata
 from langchain.chains import ConversationalRetrievalChain
 from langchain.memory import ConversationBufferMemory
-from dotenv import load_dotenv, dotenv_values
 
 app = FastAPI()
 # specify model huggingface mode name
