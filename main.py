@@ -18,7 +18,7 @@ Original file is located at
 # !pip install uvicorn nest-asyncio
 # !ngrok authtoken 2gEcFK2gvmDh3oBduEWkAHH9kiF_88hGeZiVcJiURLoenTSoD
 
-from colabcode import ColabCode
+# from colabcode import ColabCode
 from fastapi import FastAPI
 import random
 import uvicorn
@@ -37,8 +37,8 @@ import torch
 from transformers import AutoModelForCausalLM, AutoTokenizer, BitsAndBytesConfig, pipeline
 
 import os
-import gradio as gr
-from google.colab import drive
+# import gradio as gr
+# from google.colab import drive
 
 import chromadb
 from langchain.llms import HuggingFacePipeline
