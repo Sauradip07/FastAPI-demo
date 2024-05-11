@@ -39,7 +39,7 @@ from transformers import AutoModelForCausalLM, AutoTokenizer, BitsAndBytesConfig
 
 import os
 import gradio as gr
-from google.colab import drive
+# from google.colab import drive
 
 import chromadb
 from langchain.llms import HuggingFacePipeline
