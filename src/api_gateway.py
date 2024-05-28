@@ -1,5 +1,5 @@
-# api_gateway.py
 from fastapi import FastAPI, HTTPException
+from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 from rag_app import rag_app  # Import the initialized RAGApp instance
 
@@ -8,6 +8,15 @@ app = FastAPI()
 # Pydantic model for the request body
 class Question(BaseModel):
     question: str
+
+# Enable CORS
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],  # Allows all origins
+    allow_credentials=True,
+    allow_methods=["GET", "POST", "OPTIONS"],
+    allow_headers=["*"],
+)
 
 @app.post("/ask")
 def ask_question(question: Question):
@@ -20,8 +29,3 @@ def ask_question(question: Question):
 @app.get("/health")
 def health_check():
     return {"status": "API is running successfully"}
-
-# To run the FastAPI app:
-# if __name__ == "__main__":
-#     import uvicorn
-#     uvicorn.run(app, host="0.0.0.0", port=8000)
